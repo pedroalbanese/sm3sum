@@ -2,7 +2,7 @@
 ## sm3sum Parallel Implementation written in Go
 
 <PRE>
-SM3 Keccak Hashsum Tool - ALBANESE Lab (c) 2020-2021
+SM3 Chinese Stantard Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
 
 Usage of sha3sum:
 sha3sum [-v] [-b N] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
