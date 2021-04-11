@@ -8,7 +8,7 @@
 SM3 Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
 
 Usage of sha3sum:
-sm3sum [-v] [-b N] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
+sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
 
   -c string
         Check hashsum file.
