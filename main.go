@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
-	"github.com/mzky/gmcrypto/sm3"
+	"github.com/pedroalbanese/gmcrypto/sm3"
 	"io"
 	"log"
 	"os"
