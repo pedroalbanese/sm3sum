@@ -10,8 +10,6 @@ SM3 Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
 Usage of sha3sum:
 sm3sum [-v] [-b N] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
 
-  -b int
-        Bits: 224, 256, 384 and 512. (default 224)
   -c string
         Check hashsum file.
   -r    Process directories recursively.
