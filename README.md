@@ -1,5 +1,7 @@
 # SM3SUM(2)
 ## sm3sum Parallel Implementation written in Go
+####Chinese National Standard
+#### GM/T 0004-2012 - SM3 Message digest algorithm. 256-bit hash value.
 
 <PRE>
 SM3 Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
