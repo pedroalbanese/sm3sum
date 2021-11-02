@@ -4,8 +4,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/sm3sum)](https://goreportcard.com/report/github.com/pedroalbanese/sm3sum)
 ### GM/T 0004-2012 - SM3 Hashsum Tool
 <PRE>
-SM3 Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
-
 Usage of sha3sum:
 sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
 
