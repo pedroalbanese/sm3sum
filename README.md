@@ -2,7 +2,7 @@
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/pedroalbanese/sm3sum/blob/master/LICENSE.md) 
 [![GoDoc](https://godoc.org/github.com/pedroalbanese/sm3sum?status.png)](http://godoc.org/github.com/pedroalbanese/sm3sum)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/sm3sum)](https://goreportcard.com/report/github.com/pedroalbanese/sm3sum)
-### GM/T 0004-2012 - SM3 Message digest algorithm. 256-bit hash value.
+### GM/T 0004-2012 - SM3 Message digest algorithm
 <PRE>
 SM3 Hash Algorithm Tool - ALBANESE Lab (c) 2020-2021
 
