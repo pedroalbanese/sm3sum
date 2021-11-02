@@ -1,4 +1,7 @@
 # SM3SUM(2)
+[![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/pedroalbanese/sm3sum/blob/master/LICENSE.md) 
+[![GoDoc](https://godoc.org/github.com/pedroalbanese/sm3sum?status.png)](http://godoc.org/github.com/pedroalbanese/sm3sum)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/sm3sum)](https://goreportcard.com/report/github.com/pedroalbanese/sm3sum)
 ## sm3sum Parallel Implementation written in Go
 ### Chinese National Standard
 #### GM/T 0004-2012 - SM3 Message digest algorithm. 256-bit hash value.
