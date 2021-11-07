@@ -18,7 +18,7 @@ sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
 ### Examples:
 
 #### Generate hashsum list:
-´´´sh
+```sh
 $ ./sm3sum [-r] -t "*.*" > hash.txt
 ```
 ##### Always works in binary mode. 
