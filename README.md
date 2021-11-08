@@ -2,6 +2,8 @@
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/pedroalbanese/sm3sum/blob/master/LICENSE.md) 
 [![GoDoc](https://godoc.org/github.com/pedroalbanese/sm3sum?status.png)](http://godoc.org/github.com/pedroalbanese/sm3sum)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/sm3sum)](https://goreportcard.com/report/github.com/pedroalbanese/sm3sum)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pedroalbanese/sm3sum)](https://golang.org)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/pedroalbanese/sm3sum)](https://github.com/pedroalbanesesm3sum/releases)
 ### GM/T 0004-2012 - SM3 Hashsum Tool
 <PRE>
 Usage of sha3sum:
