@@ -7,21 +7,18 @@
 ### GM/T 0004-2012 - SM3 Hashsum Tool
 <PRE>
 Usage of sha3sum:
-sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] -t &lt;file.ext&gt;
-
+sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
   -c string
-        Check hashsum file.
-  -r    Process directories recursively.
-  -t string
-        Target file/wildcard to generate hashsum list.
-  -v    Verbose mode. (The exit code is always 0 in this mode)
-  </PRE>
+        Check hashsum file
+  -r    Process directories recursively
+  -v    Verbose mode (for CHECK command)
+</PRE>
   
 ### Examples:
 
 #### Generate hashsum list:
 ```sh
-$ ./sm3sum [-r] -t "*.*" > hash.txt
+$ ./sm3sum [-r] "*.*" > hash.txt
 ```
 ##### Always works in binary mode. 
 
