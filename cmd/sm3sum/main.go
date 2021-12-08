@@ -16,24 +16,26 @@ import (
 )
 
 var (
-	check     = flag.String("c", "", "Check hashsum file.")
-	recursive = flag.Bool("r", false, "Process directories recursively.")
-	target    = flag.String("t", "", "Target file/wildcard to generate hashsum list.")
-	verbose   = flag.Bool("v", false, "Verbose mode. (for CHECK command)")
+	check     = flag.String("c", "", "Check hashsum file")
+	recursive = flag.Bool("r", false, "Process directories recursively")
+	verbose   = flag.Bool("v", false, "Verbose mode (for CHECK command)")
 )
 
 func main() {
 	flag.Parse()
 
 	if len(os.Args) < 2 {
-		fmt.Println("SM3 Hashsum Tool - ALBANESE Lab (c) 2020-2021\n")
-		fmt.Println("Usage of", os.Args[0]+":")
-		fmt.Printf("%s [-v] [-c <hash.ext>] -t <file.ext>\n\n", os.Args[0])
+		fmt.Fprintln(os.Stderr, "SM3SUM Copyright (c) 2020-2021 ALBANESE Research Lab")
+		fmt.Fprintln(os.Stderr, "GM/T 0004-2012 SM3 Recursive Hasher written in Go\n")
+		fmt.Fprintln(os.Stderr, "Usage of", os.Args[0]+":")
+		fmt.Fprintf(os.Stderr, "%s [-v] [-c <hash.sm3>] [-r] <file.ext>\n", os.Args[0])
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
 
-	if *target == "-" {
+	Files := strings.Join(flag.Args(), " ")
+
+	if Files == "-" {
 		var h hash.Hash
 		h = sm3.New()
 		io.Copy(h, os.Stdin)
@@ -41,8 +43,8 @@ func main() {
 		os.Exit(0)
 	}
 
-	if *target != "" && *recursive == false {
-		files, err := filepath.Glob(*target)
+	if strings.Contains(Files, "*") && *check == "" && *recursive == false {
+		files, err := filepath.Glob(Files)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -63,10 +65,30 @@ func main() {
 			}
 			f.Close()
 		}
+		os.Exit(0)
 	}
 
-	if *target != "" && *recursive == true {
-		err := filepath.Walk(filepath.Dir(*target),
+	if *check == "" && *recursive == false {
+		for _, match := range flag.Args() {
+			h := sm3.New()
+			f, err := os.Open(match)
+			if err != nil {
+				log.Fatal(err)
+			}
+			file, err := os.Stat(match)
+			if file.IsDir() {
+			} else {
+				if _, err := io.Copy(h, f); err != nil {
+					log.Fatal(err)
+				}
+				fmt.Println(hex.EncodeToString(h.Sum(nil)), "*"+f.Name())
+			}
+			f.Close()
+		}
+	}
+
+	if *check == "" && *recursive == true {
+		err := filepath.Walk(filepath.Dir(Files),
 			func(path string, info os.FileInfo, err error) error {
 				if err != nil {
 					return err
@@ -74,23 +96,25 @@ func main() {
 				file, err := os.Stat(path)
 				if file.IsDir() {
 				} else {
-					filename := filepath.Base(path)
-					pattern := filepath.Base(*target)
-					matched, err := filepath.Match(pattern, filename)
-					if err != nil {
-						fmt.Println(err)
-					}
-					if matched {
-						h := sm3.New()
-						f, err := os.Open(path)
+					for _, match := range flag.Args() {
+						filename := filepath.Base(path)
+						pattern := filepath.Base(match)
+						matched, err := filepath.Match(pattern, filename)
 						if err != nil {
-							log.Fatal(err)
+							fmt.Println(err)
 						}
-						if _, err := io.Copy(h, f); err != nil {
-							log.Fatal(err)
+						if matched {
+							h := sm3.New()
+							f, err := os.Open(path)
+							if err != nil {
+								log.Fatal(err)
+							}
+							if _, err := io.Copy(h, f); err != nil {
+								log.Fatal(err)
+							}
+							f.Close()
+							fmt.Println(hex.EncodeToString(h.Sum(nil)), "*"+f.Name())
 						}
-						f.Close()
-						fmt.Println(hex.EncodeToString(h.Sum(nil)), "*"+f.Name())
 					}
 				}
 				return nil
