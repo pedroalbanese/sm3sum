@@ -1,5 +1,6 @@
 # SM3SUM(2)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/pedroalbanese/sm3sum/blob/master/LICENSE.md) 
+[![GitHub downloads](https://img.shields.io/github/downloads/pedroalbanese/sm3sum/total.svg?logo=github&logoColor=white)](https://github.com/pedroalbanese/sm3sum/releases)
 [![GoDoc](https://godoc.org/github.com/pedroalbanese/sm3sum?status.png)](http://godoc.org/github.com/pedroalbanese/sm3sum)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/sm3sum)](https://goreportcard.com/report/github.com/pedroalbanese/sm3sum)
 [![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pedroalbanese/sm3sum)](https://golang.org)
