@@ -18,17 +18,16 @@ import (
 var (
 	check     = flag.String("c", "", "Check hashsum file.")
 	recursive = flag.Bool("r", false, "Process directories recursively.")
-	verbose   = flag.Bool("v", false, "Verbose mode. (for CHECK command)")
 )
 
 func main() {
 	flag.Parse()
 
 	if len(os.Args) < 2 {
-		fmt.Fprintln(os.Stderr, "SM3SUM Copyright (c) 2020-2021 ALBANESE Research Lab")
+		fmt.Fprintln(os.Stderr, "SM3SUM Copyright (c) 2020-2022 ALBANESE Research Lab")
 		fmt.Fprintln(os.Stderr, "GM/T 0004-2012 SM3 Recursive Hasher written in Go\n")
 		fmt.Fprintln(os.Stderr, "Usage of", os.Args[0]+":")
-		fmt.Fprintf(os.Stderr, "%s [-v] [-c <hash.sm3>] [-r] <file.ext>\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "%s [-c <hash.sm3>] [-r] <file.ext>\n", os.Args[0])
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
@@ -125,6 +124,7 @@ func main() {
 			txtlines = append(txtlines, scanner.Text())
 		}
 
+		var exit int
 		for _, eachline := range txtlines {
 			lines := strings.Split(string(eachline), " *")
 			if strings.Contains(string(eachline), " *") {
@@ -140,26 +140,18 @@ func main() {
 					io.Copy(h, f)
 					f.Close()
 
-					if *verbose {
-						if hex.EncodeToString(h.Sum(nil)) == lines[0] {
-							fmt.Println(lines[1]+"\t", "OK")
-						} else {
-							fmt.Println(lines[1]+"\t", "FAILED")
-						}
+					if hex.EncodeToString(h.Sum(nil)) == lines[0] {
+						fmt.Println(lines[1]+"\t", "OK")
 					} else {
-						if hex.EncodeToString(h.Sum(nil)) == lines[0] {
-						} else {
-							os.Exit(1)
-						}
+						fmt.Println(lines[1]+"\t", "FAILED")
+						exit = 1
 					}
 				} else {
-					if *verbose {
-						fmt.Println(lines[1]+"\t", "Not found!")
-					} else {
-						os.Exit(1)
-					}
+					fmt.Println(lines[1]+"\t", "Not found!")
+					exit = 1
 				}
 			}
 		}
+		os.Exit(exit)
 	}
 }
