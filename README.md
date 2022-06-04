@@ -8,11 +8,10 @@
 ### GM/T 0004-2012 SM3 Recursive Hasher
 <PRE>
 Usage of sha3sum:
-sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
+sm3sum [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
   -c string
         Check hashsum file
   -r    Process directories recursively
-  -v    Verbose mode (for CHECK command)
 </PRE>
   
 ### Examples:
@@ -21,15 +20,14 @@ sm3sum [-v] [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
 ```sh
 $ ./sm3sum [-r] "*.*" > hash.txt
 ```
-##### Always works in binary mode. 
 
 #### Check hashsum file:
 ```sh
-$ ./sm3sum [-v] -c hash.txt
+$ ./sm3sum -c hash.txt
+$ echo $?
 ```
-##### Exit code is always 0 in vebose mode. 
 
 ## License
 
 This project is licensed under the ISC License.
-##### Copyright (c) 2020-2021 Pedro Albanese - ALBANESE Lab.
+##### Copyright (c) 2020-2022 Pedro F. Albanese - ALBANESE Research Lab.
