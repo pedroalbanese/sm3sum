@@ -7,7 +7,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/pedroalbanese/sm3sum)](https://github.com/pedroalbanese/sm3sum/releases)
 ### GM/T 0004-2012 SM3 Recursive Hasher
 <PRE>
-Usage of sha3sum:
+Usage of sm3sum:
 sm3sum [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
   -c string
         Check hashsum file
